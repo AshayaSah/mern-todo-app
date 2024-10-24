@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost:27017/test");
+mongoose.connect("mongodb+srv://ashaysah:ashay2059@cluster0.83ilt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 const port = process.env.PORT || 3001;
 
 app.get("/get", (req, res) => {
