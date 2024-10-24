@@ -5,7 +5,7 @@ import "./Create.css";
 const Create = () => {
   const [task, setTask] = useState("");
 
-  const url = "http://localhost:3001";
+  const url = "https://mern-todo-app-backend-116a.onrender.com";
   
   const handleAdd = () => {
     axios
