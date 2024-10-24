@@ -4,10 +4,19 @@ const cors = require("cors");
 const todoModel = require("./schema/schema");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://mern-todo-app-7ar7.onrender.com', // Your frontend URL
+  credentials: true
+}));
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://ashaysah:ashay2059@cluster0.83ilt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+mongoose
+  .connect(
+    "mongodb+srv://ashaysah:ashay2059@cluster0.83ilt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  )
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error("MongoDB connection error:", err));
+
 const port = process.env.PORT || 3001;
 
 app.get("/get", (req, res) => {
@@ -59,6 +68,17 @@ app.put("/delete/:id", (req, res) => {
       res.json(err);
     });
 });
+
+// // Load SSL certificate and key
+// const options = {
+//   key: fs.readFileSync("path/to/your/private.key"),
+//   cert: fs.readFileSync("path/to/your/certificate.crt"),
+// };
+
+// // Create an HTTPS server
+// https.createServer(options, app).listen(port, () => {
+//   console.log(`HTTPS Server running on port ${port}`);
+// });
 
 //create a server
 app.listen(port, (req, res) => {

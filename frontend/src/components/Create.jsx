@@ -6,10 +6,10 @@ const Create = () => {
   const [task, setTask] = useState("");
 
   const url = "https://mern-todo-app-backend-116a.onrender.com";
-  
+
   const handleAdd = () => {
     axios
-      .post(url+"/add", { task: task })
+      .post(url + "/add", { task: task })
       .then((result) => {
         location.reload();
       })
