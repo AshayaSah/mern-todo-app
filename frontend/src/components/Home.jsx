@@ -9,7 +9,7 @@ import "./Home.css";
 const Home = () => {
   const [todos, setTodos] = useState([]);
 
-  const url = "http://localhost:3001";
+  const url = "https://mern-todo-app-backend-116a.onrender.com";
 
   useEffect(() => {
     axios
