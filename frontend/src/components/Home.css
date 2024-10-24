@@ -1,21 +1,73 @@
 .todo-container{
+    max-width: 500px;
+    margin: 10px auto;
     display:flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .todo-items{
+    max-width: 400px;
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 10px;
 }
 
+
+.text-todo{
+    max-width: 100%; /* Allow the text to take up the full width of the parent */
+    flex: 1; /* Allow the paragraph to grow and take remaining space */
+    word-wrap: break-word; /* Break long words if necessary */
+    overflow-wrap: break-word; /* Ensures that the text wraps correctly */
+    margin: 0;
+}
+
 h1{
     text-align: center;
+    margin-top: 0;
 }
 
 .no-records{
     text-align: center;
     padding: 15px;
 }
+
+.line-through{
+    text-decoration: line-through;
+}
+
+.delete-btn {
+    background-color: black; /* Bright red color for visibility */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    max-height: 25px;
+    max-width: 25px;
+    padding: 7px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 16px; /* Font size for better readability */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    text-align: center; /* Center text */
+  }
+  
+  .delete-btn:hover {
+    background-color: #c0392b; /* Darker red on hover */
+  }
+
+  .radio-icon {
+    border-radius: 50%; /* Makes the image circular if it's square */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for effects */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  /* Add hover effects */
+  .radio-icon:hover {
+    transform: scale(1.1); /* Slightly enlarges the image on hover */
+ }

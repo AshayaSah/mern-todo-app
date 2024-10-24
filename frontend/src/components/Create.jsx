@@ -5,9 +5,11 @@ import "./Create.css";
 const Create = () => {
   const [task, setTask] = useState("");
 
+  const url = "http://localhost:3001";
+  
   const handleAdd = () => {
     axios
-      .post("http://localhost:3001/add", { task: task })
+      .post(url+"/add", { task: task })
       .then((result) => {
         location.reload();
       })

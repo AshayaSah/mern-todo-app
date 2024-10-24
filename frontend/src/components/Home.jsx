@@ -9,16 +9,18 @@ import "./Home.css";
 const Home = () => {
   const [todos, setTodos] = useState([]);
 
+  const url = "http://localhost:3001";
+
   useEffect(() => {
     axios
-      .get("http://localhost:3001/get")
+      .get(url + "/get")
       .then((result) => setTodos(result.data))
       .catch((err) => console.log(err));
   }, []);
 
   const handleEdit = (id) => {
     axios
-      .put("http://localhost:3001/update/" + id)
+      .put(url + "/update/" + id)
       .then((result) => {
         location.reload();
       })
@@ -27,7 +29,7 @@ const Home = () => {
 
   const handleDelete = (id) => {
     axios
-      .put("http://localhost:3001/delete/" + id)
+      .put(url + "/delete/" + id)
       .then((result) => {
         location.reload();
       })
@@ -53,17 +55,23 @@ const Home = () => {
                   <img
                     src={radioUnchecked}
                     alt="Unchecked radio button"
-                    style={{ width: "20px", height: "20px" }}
+                    style={{ width: "25px", height: "25px" }}
+                    className="radio-icon"
                   />
                 ) : (
                   <img
                     src={radioChecked}
                     alt="Unchecked radio button"
                     style={{ width: "20px", height: "20px" }}
+                    className="radio-icon"
                   />
                 )}
 
-                <p>{todo.task}</p>
+                <p
+                  className={todo.done ? "line-through text-todo" : "text-todo"}
+                >
+                  {todo.task}
+                </p>
               </div>
               <div
                 className="delete-btn"

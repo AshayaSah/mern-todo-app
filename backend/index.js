@@ -8,6 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose.connect("mongodb://localhost:27017/test");
+const port = process.env.PORT || 3001;
 
 app.get("/get", (req, res) => {
   todoModel
@@ -60,6 +61,6 @@ app.put("/delete/:id", (req, res) => {
 });
 
 //create a server
-app.listen(3001, (req, res) => {
+app.listen(port, (req, res) => {
   console.log("Server has started");
 });
